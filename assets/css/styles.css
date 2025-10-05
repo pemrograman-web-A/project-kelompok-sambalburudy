@@ -1,0 +1,572 @@
+/* Custom CSS for Depot Bu Rudy Revamp - Lanjutan */
+
+/* General Styling */
+body {
+    font-family: 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    color: #333;
+    background-color: #f8f9fa; /* Light grey background */
+    line-height: 1.6;
+}
+
+/* Color Palette */
+:root {
+    --primary-bu-rudy: #C0392B; /* Merah menyala, lebih dekat ke warna sambal */
+    --secondary-bu-rudy: #F7DC6F; /* Kuning keemasan, warna cerah dan mengundang */
+    --dark-bu-rudy: #2C3E50; /* Darker grey for text and footer */
+    --light-bu-rudy: #ecf0f1; /* Light background */
+    --text-muted-bu-rudy: #7f8c8d; /* Warna teks muted */
+}
+
+.text-primary-bu-rudy { color: var(--primary-bu-rudy) !important; }
+.text-secondary-bu-rudy { color: var(--secondary-bu-rudy) !important; }
+.text-dark-bu-rudy { color: var(--dark-bu-rudy) !important; }
+.text-muted-bu-rudy { color: var(--text-muted-bu-rudy) !important; }
+
+
+.bg-primary-bu-rudy { background-color: var(--primary-bu-rudy) !important; }
+.bg-secondary-bu-rudy { background-color: var(--secondary-bu-rudy) !important; }
+
+/* Custom Buttons */
+.btn-warning {
+    background-color: var(--secondary-bu-rudy);
+    border-color: var(--secondary-bu-rudy);
+    color: var(--dark-bu-rudy);
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+.btn-warning:hover {
+    background-color: darken(var(--secondary-bu-rudy), 10%); /* Slightly darker gold on hover */
+    border-color: darken(var(--secondary-bu-rudy), 10%);
+    color: var(--dark-bu-rudy);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+.btn-outline-warning {
+    color: var(--secondary-bu-rudy);
+    border-color: var(--secondary-bu-rudy);
+    transition: all 0.3s ease;
+}
+.btn-outline-warning:hover {
+    background-color: var(--secondary-bu-rudy);
+    color: var(--dark-bu-rudy);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+.btn-primary {
+    background-color: var(--primary-bu-rudy);
+    border-color: var(--primary-bu-rudy);
+    transition: all 0.3s ease;
+}
+.btn-primary:hover {
+    background-color: darken(var(--primary-bu-rudy), 10%);
+    border-color: darken(var(--primary-bu-rudy), 10%);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+/* Header / Navbar */
+.navbar {
+    background-color: #ffffff !important; /* Always white */
+    border-bottom: 1px solid rgba(0,0,0,0.08);
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05); /* Softer shadow */
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+.navbar-brand img {
+    filter: drop-shadow(0 2px 5px rgba(0,0,0,0.1));
+    height: 45px; /* Slightly larger logo */
+}
+.navbar .nav-link {
+    font-weight: 600; /* Bolder nav links */
+    color: var(--dark-bu-rudy);
+    transition: color 0.3s ease, transform 0.2s ease;
+    padding: 8px 15px; /* More padding */
+    border-radius: 5px;
+}
+.navbar .nav-link:hover {
+    color: var(--primary-bu-rudy);
+    background-color: var(--light-bu-rudy);
+    transform: translateY(-1px);
+}
+.navbar .nav-link.active {
+    color: var(--primary-bu-rudy);
+    background-color: rgba(var(--primary-bu-rudy), 0.05);
+}
+.navbar-toggler {
+    border-color: var(--light-bu-rudy);
+}
+.navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%2844, 62, 80, 0.8%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+}
+
+.navbar .fa-instagram, .navbar .fa-facebook-f {
+    color: var(--dark-bu-rudy);
+    transition: color 0.3s ease, transform 0.2s ease;
+    padding: 5px;
+    border-radius: 5px;
+}
+.navbar .fa-instagram:hover {
+    color: #e4405f; /* Instagram brand color */
+    transform: scale(1.1);
+}
+.navbar .fa-facebook-f:hover {
+    color: #3b5998; /* Facebook brand color */
+    transform: scale(1.1);
+}
+
+
+/* Hero Section */
+.hero-section {
+    min-height: 80vh; /* Make it a bit taller */
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff; /* Ensure text is white for contrast */
+    text-shadow: 0 2px 8px rgba(0,0,0,0.6); /* Stronger text shadow */
+    animation: fadeIn 1.5s ease-out forwards; /* Add fade in animation */
+}
+.hero-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.65); /* Darker overlay for better text readability */
+    z-index: 1;
+}
+.hero-section .container {
+    position: relative;
+    z-index: 2;
+    max-width: 900px; /* Limit width for better readability */
+}
+.hero-section h1 {
+    font-size: 4rem; /* Even larger heading */
+    font-weight: 800;
+    margin-bottom: 20px;
+    letter-spacing: -1px;
+}
+.hero-section p {
+    font-size: 1.35rem;
+    margin-bottom: 30px;
+}
+.hero-section .btn {
+    border-radius: 50px;
+    padding: 14px 35px;
+    font-size: 1.15rem;
+    font-weight: bold;
+    margin: 10px; /* Space between buttons */
+}
+.hero-section .btn-outline-light {
+    border-color: #fff;
+    color: #fff;
+}
+.hero-section .btn-outline-light:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+    color: #fff;
+}
+
+/* Animations (if using Animate.css or custom) */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+@keyframes slideInDown {
+    from { opacity: 0; transform: translateY(-50px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+@keyframes zoomIn {
+    from { opacity: 0; transform: scale(0.9); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+/* Section Headings */
+h2 {
+    font-size: 3rem;
+    font-weight: 700;
+    position: relative;
+    padding-bottom: 20px;
+    color: var(--dark-bu-rudy);
+}
+h2::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 0;
+    width: 90px; /* Slightly wider */
+    height: 5px; /* Thicker */
+    background-color: var(--primary-bu-rudy);
+    border-radius: 3px;
+}
+.text-lg-start h2::after {
+    left: 0;
+    transform: translateX(0);
+}
+
+
+/* About Us Section */
+#tentang {
+    padding-top: 80px;
+    padding-bottom: 80px;
+}
+#tentang .img-fluid {
+    border-radius: 1rem;
+    object-fit: cover;
+    height: 450px; /* Consistent height */
+    width: 100%;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+}
+#tentang p {
+    font-size: 1.05rem;
+    line-height: 1.8;
+}
+
+/* Menu Section */
+#menu {
+    padding-top: 80px;
+    padding-bottom: 80px;
+    background-color: var(--light-bu-rudy);
+}
+.menu-card {
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+    border-radius: 0.75rem;
+    overflow: hidden; /* Ensure image corners are rounded */
+}
+.menu-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 25px rgba(0,0,0,0.15);
+}
+.menu-card img {
+    height: 220px; /* Fixed height for menu images */
+    width: 100%;
+    object-fit: cover;
+    transition: transform 0.4s ease; /* Smooth zoom on hover */
+}
+.menu-card:hover img {
+    transform: scale(1.05); /* Slight zoom effect */
+}
+.menu-card .card-body {
+    padding: 1.5rem;
+    background-color: #fff;
+    text-align: center; /* Center align content */
+    display: flex; /* Use flexbox for vertical alignment */
+    flex-direction: column;
+    justify-content: space-between; /* Push button to bottom if content varies */
+}
+.menu-card .card-title {
+    font-size: 1.5rem;
+    margin-bottom: 0.75rem;
+    color: var(--primary-bu-rudy);
+}
+.menu-card .card-text {
+    font-size: 0.95rem;
+    line-height: 1.5;
+    color: var(--text-muted-bu-rudy);
+    flex-grow: 1; /* Allow text to take up available space */
+}
+.menu-card .btn {
+    margin-top: 15px; /* Space above button */
+}
+
+/* Lokasi Section */
+#lokasi {
+    padding-top: 80px;
+    padding-bottom: 80px;
+    background-color: #fff;
+}
+#lokasi .card {
+    border-radius: 1.2rem;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.08);
+}
+#lokasi .card-body {
+    padding: 3rem;
+}
+#lokasi .embed-responsive {
+    border-radius: 0.8rem;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+#lokasi p, #lokasi ul {
+    font-size: 1.05rem;
+}
+#lokasi .fa-map-marker-alt,
+#lokasi .fa-phone-alt,
+#lokasi .fa-clock,
+#lokasi .fa-caret-right {
+    color: var(--primary-bu-rudy); /* Icon color */
+}
+#lokasi h3, #lokasi h4 {
+    color: var(--dark-bu-rudy);
+}
+
+/* Pesan Online Section */
+#pesan {
+    padding-top: 80px;
+    padding-bottom: 80px;
+    background-color: var(--light-bu-rudy);
+}
+#pesan .card {
+    border-radius: 1.2rem;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.08);
+}
+#pesan .card-body {
+    padding: 3rem;
+}
+#orderForm .form-label {
+    font-weight: 600;
+    color: var(--dark-bu-rudy);
+}
+#orderForm .form-control,
+#orderForm .form-select {
+    border-radius: 0.6rem;
+    padding: 0.8rem 1rem;
+    border: 1px solid #ced4da;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+#orderForm .form-control:focus,
+#orderForm .form-select:focus {
+    border-color: var(--secondary-bu-rudy);
+    box-shadow: 0 0 0 0.2rem rgba(var(--secondary-bu-rudy-rgb), 0.25);
+    outline: none;
+}
+#orderItems .remove-item-btn {
+    background-color: #dc3545;
+    border-color: #dc3545;
+    color: #fff;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+#orderItems .remove-item-btn:hover {
+    background-color: #c82333;
+    transform: scale(1.05);
+}
+
+/* Footer */
+footer {
+    background-color: var(--dark-bu-rudy) !important;
+    color: #f8f9fa;
+    padding-top: 50px;
+    padding-bottom: 30px;
+}
+footer h5 {
+    color: var(--secondary-bu-rudy);
+    margin-bottom: 20px;
+}
+footer ul {
+    padding-left: 0;
+}
+footer ul li {
+    margin-bottom: 8px;
+}
+footer a {
+    color: var(--light-bu-rudy);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+footer a:hover {
+    color: var(--secondary-bu-rudy);
+}
+footer .fa-2x {
+    font-size: 2.2em; /* Larger icons */
+    margin-right: 15px;
+    transition: transform 0.3s ease;
+}
+footer .fa-instagram:hover {
+    color: #e4405f;
+    transform: scale(1.1);
+}
+footer .fa-facebook-f:hover {
+    color: #3b5998;
+    transform: scale(1.1);
+}
+footer .border-secondary {
+    border-color: rgba(255, 255, 255, 0.1) !important;
+    margin-top: 40px;
+    margin-bottom: 20px;
+}
+footer p {
+    font-size: 0.95rem;
+    color: rgba(255, 255, 255, 0.7);
+}
+footer .fa-heart {
+    color: #e74c3c;
+    animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(1); }
+}
+
+
+/* Responsive Adjustments */
+@media (max-width: 1200px) {
+    .hero-section h1 {
+        font-size: 3.5rem;
+    }
+}
+
+@media (max-width: 992px) {
+    .hero-section {
+        min-height: 60vh;
+    }
+    .hero-section h1 {
+        font-size: 3rem;
+    }
+    .hero-section p {
+        font-size: 1.15rem;
+    }
+    h2 {
+        font-size: 2.5rem;
+    }
+    #tentang .img-fluid {
+        height: 350px;
+    }
+    #lokasi .card-body, #pesan .card-body {
+        padding: 2rem;
+    }
+    .navbar .nav-link {
+        margin-right: 10px;
+    }
+    .navbar .d-flex {
+        margin-top: 10px;
+        justify-content: center;
+        width: 100%;
+    }
+}
+
+@media (max-width: 768px) {
+    .hero-section {
+        min-height: 50vh;
+        padding-top: 80px; /* Add padding for smaller screens */
+        padding-bottom: 80px;
+    }
+    .hero-section h1 {
+        font-size: 2.5rem;
+    }
+    .hero-section p {
+        font-size: 1rem;
+    }
+    .hero-section .btn {
+        padding: 10px 25px;
+        font-size: 1rem;
+    }
+
+    h2 {
+        font-size: 2rem;
+        text-align: center;
+    }
+    h2::after {
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    .navbar-collapse {
+        background-color: #fff;
+        border-top: 1px solid rgba(0,0,0,0.1);
+        padding-bottom: 10px;
+    }
+    .navbar .nav-link {
+        text-align: center;
+        margin: 5px 0;
+    }
+    .navbar .nav-item .btn {
+        width: calc(100% - 20px);
+        margin: 10px auto;
+    }
+    .navbar .d-flex {
+        margin-top: 15px;
+        margin-left: 0 !important;
+    }
+
+    #tentang .img-fluid {
+        height: auto;
+        margin-bottom: 20px;
+    }
+
+    #lokasi .card-body {
+        padding: 1.5rem;
+    }
+    #lokasi .row > div.order-md-1, #lokasi .row > div.order-md-2 {
+        order: initial !important; /* Reset order for mobile */
+    }
+    #lokasi .embed-responsive {
+        margin-bottom: 20px;
+    }
+    
+    #pesan .card-body {
+        padding: 1.5rem;
+    }
+    #orderItems .order-item {
+        flex-direction: column; /* Stack order items vertically */
+    }
+    #orderItems .col-md-5, #orderItems .col-md-3, #orderItems .col-md-1 {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+    #orderItems .remove-item-btn {
+        width: 100%;
+        border-radius: 0.6rem;
+    }
+
+    footer .col-md-4 {
+        text-align: center;
+        margin-bottom: 30px;
+    }
+    footer .col-md-4:last-child {
+        margin-bottom: 0;
+    }
+    footer ul {
+        display: inline-block; /* Center list items */
+    }
+}
+
+@media (max-width: 576px) {
+    .hero-section h1 {
+        font-size: 2rem;
+    }
+    .hero-section p {
+        font-size: 0.9rem;
+    }
+    .hero-section .btn {
+        padding: 8px 20px;
+        font-size: 0.9rem;
+    }
+    h2 {
+        font-size: 1.8rem;
+    }
+    .menu-card img {
+        height: 180px;
+    }
+    .menu-card .card-title {
+        font-size: 1.25rem;
+    }
+    .menu-card .card-text {
+        font-size: 0.85rem;
+    }
+    #lokasi p, #lokasi ul {
+        font-size: 0.95rem;
+    }
+}
+
+/* Custom Utilities (if needed) */
+.shadow-sm {
+    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075) !important;
+}
+.shadow {
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15) !important;
+}
+.shadow-lg {
+    box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.175) !important;
+}
+
+/* Helper to darken a color for hover effects (requires Sass/Less, or manually define) */
+/* For pure CSS, you'd need to manually calculate or use RGBA with opacity */
+/* Example: darken(color, amount) { return color with reduced lightness } */
+/* Since this is pure CSS, I'll use direct color values for darken/lighten */
+/* You can replace these with your own calculated values or use a CSS preprocessor */
