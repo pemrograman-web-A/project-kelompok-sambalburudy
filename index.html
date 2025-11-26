@@ -45,6 +45,7 @@
                 <div class="flex-shrink-0 flex items-center gap-2">
                     <span class="font-serif text-2xl font-bold text-burudy-red tracking-wide">Bu Rudy</span>
                 </div>
+                
                 <div class="hidden md:flex space-x-8 items-center">
                     <a href="#home" class="font-medium hover:text-burudy-red transition">Beranda</a>
                     <a href="#menu" class="font-medium hover:text-burudy-red transition">Menu Favorit</a>
@@ -54,19 +55,24 @@
                         Pesan Sekarang
                     </a>
                 </div>
+
                 <div class="md:hidden flex items-center">
-                    <button id="mobile-menu-btn" class="text-burudy-dark hover:text-burudy-red focus:outline-none">
+                    <button id="mobile-menu-btn" class="text-burudy-dark p-2 rounded-md hover:bg-red-50 hover:text-burudy-red focus:outline-none transition">
                         <i class="fas fa-bars text-2xl"></i>
                     </button>
                 </div>
             </div>
         </div>
-        <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-100 absolute w-full">
-            <div class="px-4 pt-2 pb-6 space-y-2 shadow-lg">
-                <a href="#home" class="block px-3 py-3 rounded-md text-base font-medium hover:bg-red-50 hover:text-burudy-red">Beranda</a>
-                <a href="#menu" class="block px-3 py-3 rounded-md text-base font-medium hover:bg-red-50 hover:text-burudy-red">Menu Favorit</a>
-                <a href="#partners" class="block px-3 py-3 rounded-md text-base font-medium hover:bg-red-50 hover:text-burudy-red">Oleh-Oleh Lain</a>
-                <a href="#lokasi" class="block px-3 py-3 rounded-md text-base font-medium hover:bg-red-50 hover:text-burudy-red">Lokasi</a>
+
+        <div id="mobile-menu" class="hidden absolute top-full left-0 w-full bg-white border-t border-gray-100 shadow-xl md:hidden flex flex-col transition-all duration-300 origin-top z-40">
+            <div class="px-4 py-4 space-y-3">
+                <a href="#home" class="block px-4 py-3 rounded-lg text-base font-medium text-gray-700 hover:bg-red-50 hover:text-burudy-red transition">Beranda</a>
+                <a href="#menu" class="block px-4 py-3 rounded-lg text-base font-medium text-gray-700 hover:bg-red-50 hover:text-burudy-red transition">Menu Favorit</a>
+                <a href="#partners" class="block px-4 py-3 rounded-lg text-base font-medium text-gray-700 hover:bg-red-50 hover:text-burudy-red transition">Oleh-Oleh Lain</a>
+                <a href="#lokasi" class="block px-4 py-3 rounded-lg text-base font-medium text-gray-700 hover:bg-red-50 hover:text-burudy-red transition">Lokasi</a>
+                <a href="#menu" class="block mt-4 text-center bg-burudy-red text-white px-4 py-3 rounded-full font-bold hover:bg-red-800 transition shadow-md">
+                    Pesan Sekarang
+                </a>
             </div>
         </div>
     </nav>

@@ -1,14 +1,16 @@
 document.addEventListener('DOMContentLoaded', () => {
     
-    // 1. Mobile Menu Toggle Logic
+    // --- 1. MOBILE MENU LOGIC (FIXED) ---
     const btn = document.getElementById('mobile-menu-btn');
     const menu = document.getElementById('mobile-menu');
     const icon = btn.querySelector('i');
 
-    btn.addEventListener('click', () => {
+    // Toggle Menu saat tombol diklik
+    btn.addEventListener('click', (e) => {
+        e.stopPropagation(); // Mencegah event bubbling
         menu.classList.toggle('hidden');
         
-        // Switch Icon (Bars <-> Times)
+        // Ubah Ikon
         if (menu.classList.contains('hidden')) {
             icon.classList.remove('fa-times');
             icon.classList.add('fa-bars');
@@ -18,7 +20,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // Close mobile menu when link is clicked
+    // Close menu saat link diklik
     menu.querySelectorAll('a').forEach(link => {
         link.addEventListener('click', () => {
             menu.classList.add('hidden');
@@ -27,8 +29,17 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
+    // Close menu saat klik di LUAR menu (Click Outside)
+    document.addEventListener('click', (e) => {
+        if (!menu.classList.contains('hidden') && !menu.contains(e.target) && !btn.contains(e.target)) {
+            menu.classList.add('hidden');
+            icon.classList.remove('fa-times');
+            icon.classList.add('fa-bars');
+        }
+    });
 
-    // 2. Navbar Scroll Effect (Glassmorphism enhancer)
+
+    // --- 2. NAVBAR SCROLL EFFECT ---
     const navbar = document.getElementById('navbar');
     window.addEventListener('scroll', () => {
         if (window.scrollY > 20) {
@@ -39,8 +50,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
 
-    // 3. Scroll Reveal Animation (Intersection Observer)
-    // Ini membuat elemen muncul perlahan saat discroll ke bawah
+    // --- 3. SCROLL REVEAL ANIMATION ---
     const observerOptions = {
         root: null,
         rootMargin: '0px',
@@ -51,7 +61,7 @@ document.addEventListener('DOMContentLoaded', () => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 entry.target.classList.add('is-visible');
-                observer.unobserve(entry.target); // Hanya animasi sekali
+                observer.unobserve(entry.target);
             }
         });
     }, observerOptions);
@@ -59,21 +69,12 @@ document.addEventListener('DOMContentLoaded', () => {
     document.querySelectorAll('.fade-in-section').forEach(section => {
         observer.observe(section);
     });
-
 });
 
-// 4. WhatsApp Direct Order Logic (Global Function)
-// Dipanggil langsung dari onClick button di HTML
+// --- 4. WHATSAPP ORDER LOGIC ---
 function orderViaWA(productName, price) {
-    // GANTI NOMOR INI dengan nomor admin asli (Format: Kode Negara + Nomor)
-    const phoneNumber = "6281234567890"; 
-    
-    // Format pesan sapaan yang sopan dan jelas
-    const message = `Halo Admin Bu Rudy, saya mau pesan:\n\n*${productName}*\nHarga: Rp ${price.toLocaleString('id-ID')}\n\nApakah stok tersedia dan bisa dikirim ke alamat saya?`;
-    
-    // Encode URL agar karakter spasi dan enter terbaca
+    const phoneNumber = "6281234567890"; // Ganti dengan nomor Admin
+    const message = `Halo Admin Bu Rudy, saya mau pesan:\n\n*${productName}*\nHarga: Rp ${price.toLocaleString('id-ID')}\n\nApakah stok tersedia?`;
     const url = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
-    
-    // Buka di tab baru
     window.open(url, '_blank');
 }
